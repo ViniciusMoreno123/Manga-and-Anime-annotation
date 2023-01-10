@@ -24,28 +24,23 @@ loginUser = (email,senha) => {
 render(){
   const {email,senha} = this.state
     return(
-    <KeyboardAvoidingView style = {styles.keyboard} behavior = "padding">
-      <View>
-        <View style = {{
-          flex:0.9,
-          
-        }}>
+      <View style={{flex: 1, backgroundColor:"#DB1F2D"}}>
+      <KeyboardAvoidingView style = {styles.keyboard} behavior = "padding">
         <Image source={Imagem} style={styles.imagem}/>
-        </View>
         <TextInput style = {styles.text} onChangeText = {texto =>{this.setState({email:texto})}} placeholder = {"insira seu email"}placeholderTextColor = {"white"} autoFocus/>
         <TextInput style = {styles.text} onChangeText = {texto =>{this.setState({senha:texto})}} placeholder = {"insira sua senha"}placeholderTextColor = {"white"} secureTextEntry/>
         <TouchableOpacity style = {styles.botao}onPress = {()=>{this.loginUser(email,senha)}} >
           <Text style = {styles.text2}>Clique para logar</Text>
         </TouchableOpacity>
-      </View>
     </KeyboardAvoidingView>
+    </View>
     )
 
 }
 }
 const styles = StyleSheet.create({
   keyboard: {
- flex:1,
+ flex:0.5,
   backgroundColor:"#DB1F2D",
   justifyContent:"center",
   alignItems:"center"

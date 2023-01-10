@@ -10,10 +10,29 @@ render(){
     justifyContent:"center",
     alignItems:"center",
      }}>
+       getTransactions = () => {
+    db.collection("transactions")
+     .get()
+     .then(snapshot =>{
+        snapshot.docs.map(doc=> {
+            this.setState({
+            allTransactions: [...this.state.allTransactions,doc.data()]
+
+            })
+        })
+     })
+   }
+   
+      <View style = {{flex:0.4}}>
       <Text>
       Manga
       </Text>
-    <Button title="Ir para proxima tela"/>
+      <Button title="Criar Manga" onPress={()=> this.props.navigation.navigate("CreateManga")}/>
+    
+    </View>
+    <View style = {{flex:0.6}}>
+    
+    </View>
      </View>   
     )
 

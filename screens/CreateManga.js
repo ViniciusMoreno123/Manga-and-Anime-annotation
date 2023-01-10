@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Text,View,Button } from "react-native";
 
 
-export default class TelaAnime extends Component{
+export default class CreateManga extends Component{
 render(){
     return(
      <View style = {{
@@ -11,9 +11,8 @@ render(){
     alignItems:"center",
      }}>
       <Text>
-      Anime
+      Criar manga
       </Text>
-    <Button title="Ir para proxima tela"/>
      </View>   
     )
 

@@ -1,7 +1,9 @@
 import React, {Component} from "react";
-import { Text,View,Button } from "react-native";
+import { Text,View,Button, TouchableOpacity, Image, StyleSheet } from "react-native";
 import db from "../config";
 import firebase from "firebase";
+var ImgManga = require("../assets/manga.jpg");
+var ImgAnime = require ("../assets/anime.jpg");
 
 export default class TelaExp extends Component{
 render(){
@@ -11,29 +13,41 @@ render(){
     justifyContent:"center",
     alignItems:"center",
      }}>
-      <View style = {{
-      flex:0.3
-      }}>
       <Text style = {{
       fontSize:20,
       
       }}>
       Bem vindo ao aplicativo, Escolha um de seu interesse 
       </Text>
-      <View style = {{
-        flex:0.5
-      }}>
-      <Button title="Manga" onPress={()=> this.props.navigation.navigate("TelaManga")} />
-    <Button title="Anime" onPress={()=> this.props.navigation.navigate("TelaAnime")}/>
+     
+      <TouchableOpacity onPress={()=> this.props.navigation.navigate("TelaManga")} >
+      <Image source = {ImgManga}  style = {styles.ImgManga}/>
+      <Text>Manga</Text>
+      </TouchableOpacity>
+    <TouchableOpacity  onPress={()=> this.props.navigation.navigate("TelaAnime")}>
+    <Image source = {ImgAnime}  style = {styles.ImgAnime}/>
+    <Text>Anime</Text>
+    </TouchableOpacity>
     </View>
 
       
-      </View>
+      
 
-     </View>
-     
+   
      
     )
     
 }
 }
+const styles = StyleSheet.create({
+  ImgAnime:{
+    width:200,
+    height:200,
+    resizeMode:"contain"
+  },
+  ImgManga:{
+    width:200,
+    height:200,
+    resizeMode:"contain"
+  }
+})
